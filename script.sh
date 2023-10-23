@@ -1,7 +1,7 @@
 #! /bin/bash
 clear
 echo 		"Welcome to ALf's Arch Linux RU Install Script!"
-
+sleep 5
 
 loadkeys ru
 setfont cyr-sun16
@@ -82,9 +82,24 @@ arch-chroot /mnt /bin/bash -c "systemctl enable bluetooth"
 sleep 2
 clear
 
-echo Устанавливаем загрузчик systemd-boot"
+echo "Устанавливаем загрузчик systemd-boot"
 sleep 3
 arch-chroot /mnt /bin/bash -c "bootctl install"
+sleep 3
+
+echo "Настраиваем loader.conf"
+sleep 3
+arch-chroot /mnt /bin/bash -c "echo 'default arch.conf' > /boot/loader/loader.conf"
+arch-chroot /mnt /bin/bash -c "echo 'timeout 0' >> /boot/loader/loader.conf"
+arch-chroot /mnt /bin/bash -c "echo 'console-mode max' >> /boot/loader/loader.conf"
+arch-chroot /mnt /bin/bash -c "echo 'editor no' >> /boot/loader/loader.conf"
+
+echo "Настраиваем arch.conf"
+arch-chroot /mnt /bin/bash -c "echo 'title   Arch Linux' > /boot/loader/entries/arch.conf"
+arch-chroot /mnt /bin/bash -c "echo 'linux   /vmlinuz-linux' >> /boot/loader/entries/arch.conf"
+arch-chroot /mnt /bin/bash -c "echo 'initrd  /intel-ucode.img' >> /boot/loader/entries/arch.conf"
+arch-chroot /mnt /bin/bash -c "echo 'initrd  /initramfs-linux.img' >> /boot/loader/entries/arch.conf"
+arch-chroot /mnt /bin/bash -c "echo 'options root="LABEL=arch" rw' >> /boot/loader/entries/arch.conf"
 
 echo "НЕ ЗАБЫВАЕМ поставить пароль ROOT зайдя в arch-chroot /mnt"
 sleep 3
