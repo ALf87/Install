@@ -1,7 +1,7 @@
 Установка базовой системы Arch Linux XFCE + LightDM. 
 Используем самый последний образ с сайта https://archlinux.org
 
-Скачивание и запуск скрипта производится коммандой:
+Скачивание и запуск скрипта производится командой:
 
 curl -OL https://raw.githubusercontent.com/ALf87/Install/main/script.sh && sh script.sh
 
