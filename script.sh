@@ -95,6 +95,7 @@ arch-chroot /mnt /bin/bash -c "echo 'console-mode max' >> /boot/loader/loader.co
 arch-chroot /mnt /bin/bash -c "echo 'editor no' >> /boot/loader/loader.conf"
 
 echo "Настраиваем arch.conf"
+sleep 3
 arch-chroot /mnt /bin/bash -c "echo 'title   Arch Linux' > /boot/loader/entries/arch.conf"
 arch-chroot /mnt /bin/bash -c "echo 'linux   /vmlinuz-linux' >> /boot/loader/entries/arch.conf"
 arch-chroot /mnt /bin/bash -c "echo 'initrd  /intel-ucode.img' >> /boot/loader/entries/arch.conf"
