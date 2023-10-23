@@ -49,8 +49,8 @@ arch-chroot /mnt /bin/bash -c "ln -sf /usr/share/zoneinfo/Asia/Omsk /etc/localti
 sleep 3
 arch-chroot /mnt /bin/bash -c "hwclock --systohc"
 
-arch-chroot /mnt /bin/bash -c "sed -i s/'#en_US.UTF-8'/'en_US.UTF-8'/g /etc/locale.gen"
-arch-chroot /mnt /bin/bash -c "sed -i s/'#ru_RU.UTF-8'/'ru_RU.UTF-8'/g /etc/locale.gen"
+arch-chroot /mnt /bin/bash -c "sed -i s/'#en_US.UTF-8'/' en_US.UTF-8'/g /etc/locale.gen"
+arch-chroot /mnt /bin/bash -c "sed -i s/'#ru_RU.UTF-8'/' ru_RU.UTF-8'/g /etc/locale.gen"
 arch-chroot /mnt /bin/bash -c "locale-gen"
 sleep 3
 arch-chroot /mnt /bin/bash -c "echo 'LANG=ru_RU.UTF-8' > /etc/locale.conf"
@@ -60,8 +60,9 @@ arch-chroot /mnt /bin/bash -c "echo 'rock' > /etc/hostname"
 arch-chroot /mnt /bin/bash -c "echo '127.0.0.1 localhost' > /etc/hosts"
 arch-chroot /mnt /bin/bash -c "echo '::1       localhost' >> /etc/hosts"
 arch-chroot /mnt /bin/bash -c "echo '127.0.0.1 rock.localdomain rock' >> /etc/hosts"
-arch-chroot /mnt /bin/bash -c "sed -i s/'# %wheel ALL=(ALL:ALL) ALL'/'%wheel ALL=(ALL:ALL) ALL'/g /etc/sudoers"
+arch-chroot /mnt /bin/bash -c "sed -i s/'# %wheel ALL=(ALL:ALL) ALL'/' %wheel ALL=(ALL:ALL) ALL'/g /etc/sudoers"
 arch-chroot /mnt /bin/bash -c "mkinitcpio -P"
+sleep 3
 clear
 echo "Добавляем пользователя alf"
 sleep 5
@@ -77,9 +78,11 @@ arch-chroot /mnt /bin/bash -c "systemctl enable lightdm"
 
 sleep 2
 arch-chroot /mnt /bin/bash -c "systemctl enable bluetooth"
+sleep 2
+clear
 
 echo Устанавливаем загрузчик systemd-boot"
-sleep 5
+sleep 3
 arch-chroot /mnt /bin/bash -c "bootctl install"
 
 echo "НЕ ЗАБЫВАЕМ поставить пароль ROOT зайдя в arch-chroot /mnt"
