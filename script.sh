@@ -1,6 +1,6 @@
 #! /bin/bash
 clear
-echo 		"Welcome to ALf's Arch Linux RU Install Script!"
+echo 		"Welcome to ALf's Arch Linux XFCE RU Install Script!"
 sleep 5
 
 loadkeys ru
