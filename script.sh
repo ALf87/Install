@@ -18,27 +18,27 @@ clear
 
 cfdisk -z
 
-mkfs.fat -F 32 /dev/vda1
+mkfs.fat -F 32 /dev/sda1
 sleep 3
-mkfs.ext4 -L arch /dev/vda2
+mkfs.ext4 -L arch /dev/sda2
 sleep 3
-mkfs.ext4 -L home /dev/vda4
+mkfs.ext4 -L home /dev/sda4
 sleep 3
-mkswap /dev/vda3
+mkswap /dev/sda3
 
-mount /dev/vda2 /mnt
+mount /dev/sda2 /mnt
 sleep 3
-mount --mkdir /dev/vda1 /mnt/boot
+mount --mkdir /dev/sda1 /mnt/boot
 sleep 3
-mount --mkdir /dev/vda4 /mnt/home
+mount --mkdir /dev/sda4 /mnt/home
 sleep 3
-swapon /dev/vda3
+swapon /dev/sda3
 sleep 2
 
 lsblk
 sleep 5
 
-pacstrap -K /mnt base base-devel linux linux-firmware nano dhcpcd xorg xfce4 xfce4-goodies gvfs networkmanager network-manager-applet pipewire pipewire-media-session pipewire-pulse pavucontrol bluez bluez-utils blueman lightdm lightdm-gtk-greeter --noconfirm 
+pacstrap -K /mnt base base-devel linux linux-firmware nano dhcpcd xorg xfce4 xfce4-goodies gvfs networkmanager network-manager-applet pipewire pipewire-media-session pipewire-pulse pavucontrol bluez bluez-utils blueman lightdm lightdm-gtk-greeter vivaldi vivaldi-ffmpeg-codecs --noconfirm 
 
 sleep 3
 genfstab -L /mnt >> /mnt/etc/fstab
