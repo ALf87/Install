@@ -72,7 +72,6 @@ arch-chroot /mnt /bin/bash -c "echo '127.0.0.1 localhost' > /etc/hosts"
 arch-chroot /mnt /bin/bash -c "echo '::1       localhost' >> /etc/hosts"
 arch-chroot /mnt /bin/bash -c "echo '127.0.0.1 rock.localdomain rock' >> /etc/hosts"
 arch-chroot /mnt /bin/bash -c "sed -i s/'# %wheel ALL=(ALL:ALL) ALL'/' %wheel ALL=(ALL:ALL) ALL'/g /etc/sudoers"
-arch-chroot /mnt /bin/bash -c "sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf"
 arch-chroot /mnt /bin/bash -c "mkinitcpio -P"
 sleep 3
 clear
