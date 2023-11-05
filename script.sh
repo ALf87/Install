@@ -1,6 +1,9 @@
 #! /bin/bash
 clear
-echo 		"Welcome to ALf's Arch Linux XFCE RU Install Script!"
+echo "
+
+                                                       Welcome to ALf's Arch Linux XFCE RU Install Script!
+"
 sleep 5
 
 loadkeys ru
@@ -10,7 +13,10 @@ timedatectl set-ntp true
 sleep 5
 clear
 
-echo 		"Сделай разметку диска!"
+echo "
+                                                                    
+                                                                    Сделай разметку диска!
+"
 echo "SDA1 /boot, SDA2 /root, SDA3 SWAP, SDA4 /home"
 
 sleep 5
@@ -70,12 +76,18 @@ arch-chroot /mnt /bin/bash -c "sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pa
 arch-chroot /mnt /bin/bash -c "mkinitcpio -P"
 sleep 3
 clear
-echo "Добавляем пользователя alf"
+echo "
+                                                        
+                                                                Добавляем пользователя alf
+"
 sleep 5
 arch-chroot /mnt /bin/bash -c "useradd -m -G wheel -s /bin/bash alf"
 sleep 5
 
-echo "Запускаем СЛУЖБЫ"
+echo "
+
+                                                                     Запускаем СЛУЖБЫ
+"
 arch-chroot /mnt /bin/bash -c "systemctl enable NetworkManager"
 
 sleep 2
@@ -87,19 +99,28 @@ arch-chroot /mnt /bin/bash -c "systemctl enable bluetooth"
 sleep 2
 clear
 
-echo "Устанавливаем загрузчик systemd-boot"
+echo "
+
+                                                              Устанавливаем загрузчик systemd-boot
+"
 sleep 3
 arch-chroot /mnt /bin/bash -c "bootctl install"
 sleep 3
 
-echo "Настраиваем loader.conf"
+echo "
+
+                                                                    Настраиваем loader.conf
+"
 sleep 3
 arch-chroot /mnt /bin/bash -c "echo 'default arch.conf' > /boot/loader/loader.conf"
 arch-chroot /mnt /bin/bash -c "echo 'timeout 0' >> /boot/loader/loader.conf"
 arch-chroot /mnt /bin/bash -c "echo 'console-mode max' >> /boot/loader/loader.conf"
 arch-chroot /mnt /bin/bash -c "echo 'editor no' >> /boot/loader/loader.conf"
 
-echo "Настраиваем arch.conf"
+echo "
+
+                                                                     Настраиваем arch.conf
+"
 sleep 3
 arch-chroot /mnt /bin/bash -c "echo 'title   Arch Linux' > /boot/loader/entries/arch.conf"
 arch-chroot /mnt /bin/bash -c "echo 'linux   /vmlinuz-linux' >> /boot/loader/entries/arch.conf"
@@ -107,11 +128,23 @@ arch-chroot /mnt /bin/bash -c "echo 'initrd  /intel-ucode.img' >> /boot/loader/e
 arch-chroot /mnt /bin/bash -c "echo 'initrd  /initramfs-linux.img' >> /boot/loader/entries/arch.conf"
 arch-chroot /mnt /bin/bash -c "echo 'options root="LABEL=arch" rw' >> /boot/loader/entries/arch.conf"
 
-echo "НЕ ЗАБЫВАЕМ поставить пароль ROOT зайдя в arch-chroot /mnt"
+echo "
+
+                                                   НЕ ЗАБЫВАЕМ поставить пароль ROOT зайдя в arch-chroot /mnt
+"
 sleep 3
-echo "ПАРОЛЬ СТАВИТСЯ КОМАНДОЙ passwd"
+echo "
+
+                                                                ПАРОЛЬ СТАВИТСЯ КОМАНДОЙ passwd
+"
 sleep 3
-echo "НЕ ЗАБЫВАЕМ поставить пароль от ПОЛЬЗОВАТЕЛЯ alf"
+echo "
+
+                                                        НЕ ЗАБЫВАЕМ поставить пароль от ПОЛЬЗОВАТЕЛЯ alf
+"
 sleep 3
-echo "ПАРОЛЬ СТАВИТСЯ КОМАНДОЙ passwd alf"
+echo "
+
+                                                                ПАРОЛЬ СТАВИТСЯ КОМАНДОЙ passwd alf
+"
 sleep 5
