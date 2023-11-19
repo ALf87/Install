@@ -44,7 +44,7 @@ sleep 2
 lsblk
 sleep 5
 
-pacstrap -K /mnt base base-devel linux-zen linux-firmware linux-zen-headers nano dhcpcd xorg-server xorg-server-devel nvidia-dkms nvidia-utils nvidia-settings opencl-nvidia xfce4 mousepad thunar-archive-plugin thunar-media-tags-plugin xfce4-artwork xfce4-battery-plugin xfce4-clipman-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-dict xfce4-diskperf-plugin xfce4-eyes-plugin xfce4-fsguard-plugin xfce4-genmon-plugin xfce4-mailwatch-plugin xfce4-mount-plugin xfce4-mpc-plugin xfce4-netload-plugin xfce4-notes-plugin xfce4-notifyd xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter xfce4-sensors-plugin xfce4-smartbookmark-plugin xfce4-systemload-plugin xfce4-taskmanager xfce4-time-out-plugin xfce4-timer-plugin xfce4-verve-plugin xfce4-wavelan-plugin xfce4-weather-plugin xfce4-whiskermenu-plugin xfce4-xkb-plugin gvfs networkmanager network-manager-applet pipewire pipewire-media-session pipewire-pulse pavucontrol bluez bluez-utils blueman lightdm lightdm-gtk-greeter vivaldi vivaldi-ffmpeg-codecs dosfstools ntfs-3g file-roller p7zip unrar git vlc qbittorrent telegram-desktop shotwell gparted xdg-user-dirs intel-ucode --noconfirm 
+pacstrap -K /mnt base base-devel linux linux-firmware linux-headers nano dhcpcd xorg-server xorg-server-devel nvidia nvidia-utils nvidia-settings opencl-nvidia xfce4 mousepad thunar-archive-plugin thunar-media-tags-plugin xfce4-artwork xfce4-battery-plugin xfce4-clipman-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-dict xfce4-diskperf-plugin xfce4-eyes-plugin xfce4-fsguard-plugin xfce4-genmon-plugin xfce4-mailwatch-plugin xfce4-mount-plugin xfce4-mpc-plugin xfce4-netload-plugin xfce4-notes-plugin xfce4-notifyd xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter xfce4-sensors-plugin xfce4-smartbookmark-plugin xfce4-systemload-plugin xfce4-taskmanager xfce4-time-out-plugin xfce4-timer-plugin xfce4-verve-plugin xfce4-wavelan-plugin xfce4-weather-plugin xfce4-whiskermenu-plugin xfce4-xkb-plugin gvfs networkmanager network-manager-applet pipewire pipewire-media-session pipewire-pulse pavucontrol bluez bluez-utils blueman lightdm lightdm-gtk-greeter vivaldi vivaldi-ffmpeg-codecs dosfstools ntfs-3g file-roller p7zip unrar git vlc qbittorrent telegram-desktop shotwell gparted xdg-user-dirs intel-ucode --noconfirm 
 
 sleep 3
 genfstab -L /mnt >> /mnt/etc/fstab
@@ -125,9 +125,9 @@ echo "
 "
 sleep 3
 arch-chroot /mnt /bin/bash -c "echo 'title   Arch Linux' > /boot/loader/entries/arch.conf"
-arch-chroot /mnt /bin/bash -c "echo 'linux   /vmlinuz-linux-zen' >> /boot/loader/entries/arch.conf"
+arch-chroot /mnt /bin/bash -c "echo 'linux   /vmlinuz-linux' >> /boot/loader/entries/arch.conf"
 arch-chroot /mnt /bin/bash -c "echo 'initrd  /intel-ucode.img' >> /boot/loader/entries/arch.conf"
-arch-chroot /mnt /bin/bash -c "echo 'initrd  /initramfs-linux-zen.img' >> /boot/loader/entries/arch.conf"
+arch-chroot /mnt /bin/bash -c "echo 'initrd  /initramfs-linux.img' >> /boot/loader/entries/arch.conf"
 arch-chroot /mnt /bin/bash -c "echo 'options root="LABEL=arch" rw' >> /boot/loader/entries/arch.conf"
 
 echo "
